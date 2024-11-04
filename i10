@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=icon href=images/logo.ico>
+    <title>注册页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f0e6f6;
+            background: #d5d5d5 url(images/bg1.png) no-repeat center;
+            height: 710px;
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        /*头部*/
+        .top {
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+        }
+        .top_logo {
+            width: 200px;
+        }
+        .welcome {
+            color: white;
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+            font-family: "楷体";
+            margin-left: 150px;
+        } 
+        .content_login {
+            margin-left: 0 auto;
+            /* height: 505px; */
+            display: flex;
+           margin-left: 650px;
+            justify-content: center;
+            
+        }
+
+        .login-form {
+            width: 480px;
+            height: 450px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 5px 6px 9px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input {
+            width: 220px;
+            height: 18px;
+            margin-bottom: 10px;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            margin-left: 25px;
+            color: #000;
+            border-top: 1px solid #312e3d;
+            border-left: 1px solid #312e3d;
+            border-right: 1px solid #312e3d;
+            border-bottom: 1px solid #56536a;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+        .but {
+            width: 300px;
+            min-height: 20px;
+            display: block;
+            background-color: #b5ade7;
+            border: 1px solid #9489dc;
+            color: #fff;
+            padding: 9px 14px;
+            font-size: 15px;
+            line-height: normal;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-left: 50px;
+        }
+
+        .but:hover {
+            background-color: #9489dc;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 1px #ccc;
+        }
+
+        .login-type {
+            font-size: 22px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-type span {
+            color: #333;
+        }
+
+        .login-type span.active {
+            color: #8838e9;
+        }
+
+        .copyright {
+            font-size: 10px;
+            color: #757575;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .divAll {
+            width: 800px;
+            font-family: "黑体";
+            margin: 50px auto;
+        }
+
+        #titles {
+            font-weight: bold;
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+            background: #fff9f3;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        #contents {
+            margin-top: 20px;
+            background: #fff9f3;
+            border: 1px solid #ccc;
+        }
+
+        #form-itemGroup {
+            padding: 10px;
+        }
+
+        #form-itemGroup .default {
+            width: 220px;
+            height: 30px;
+            line-height: 32px;
+            color: #999;
+        }
+
+        #form-itemGroup .error {
+            height: 32px;
+            line-height: 32px;
+            color: #f00;
+        }
+
+        #form-itemGroup .success {
+            height: 32px;
+            line-height: 32px;
+            color: #096;
+        }
+
+        .input_name {
+            width: 15px;
+            margin-right: 3px;
+        }
+
+        .default {
+            color: #786f70;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 注册主体部分 -->
+    <div class="top">
+        <div class="top_logo">
+<!--            <a href="index.html"><img src="images/logo1.png"></a>-->
+        </div>
+        <div class="welcome">欢迎注册</div>
+    </div>
+    <div class="content">
+        <div class="content_login">
+            <div class="login-form">
+                <p class="login-type">
+
+                    <span class="active" style="color: black">新用户注册</span>
+
+                </p>
+                <form action="index.html" onSubmit="return checkForm()">
+                    <div id="form-itemGroup">
+                        <input type="text" id="userName" placeholder="用户名" maxlength="12" class="userName input"
+                            onBlur="checkUserName()" oninput="checkUserName()" />
+                        <span class="default" id="nameErr">
+                            <img src="images/s.png" class="input_name" id="input_img" />输入用户名</span>
+                    </div>
+                    <div id="form-itemGroup">
+                        <input type="password" id="userPasword" maxlength="8" placeholder="密码" class="userName input"
+                            onBlur="checkPassword()" oninput="checkPassword()" />
+                        <span class="default" id="passwordErr">
+                            <img src="images/s.png" alt="" class="input_name" id="input_img" />输入4到8位的密码
+                        </span>
+                    </div>
+                    <div id="form-itemGroup">
+                        <input type="password" maxlength="8" id="userConfirmPasword" class="userName input"
+                            placeholder="再次输入密码" onBlur="ConfirmPassword()" oninput="ConfirmPassword()" />
+                        <span class="default" id="conPasswordErr">
+                            <img src="images/s.png" alt="" class="input_name" id="input_img" />再输入一遍密码
+                        </span>
+                    </div>
+                    <div id="form-itemGroup">
+                        <input type="text" id="userPhone" class="userName input" placeholder="手机号码" maxlength="11"
+                            onBlur="checkPhone()" oninput="checkPhone()" />
+                        <span class="default" id="phoneErr">
+                            <img src="images/s.png" alt="" class="input_name" id="input_img" />输入11位手机号
+                        </span>
+                    </div>
+                    <div>
+                        <button type="submit" class="but" onclick="register()">
+                            注册
+                        </button>
+                    </div>
+                </form>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function checkForm() {
+            var ZC_1 = checkUserName();
+            var ZC_2 = checkPassword();
+            var ZC_3 = ConfirmPassword();
+            var ZC_4 = checkPhone();
+            return ZC_1 && ZC_2 && ZC_3 && ZC_4;
+        }
+        //验证用户名
+        function checkUserName() {
+            var ZC_5 = document.getElementById("userName");
+            var ZC_6 = document.getElementById("nameErr");
+            var ZC_7 = /^\w{3,12}$/; //用户名格式正则表达式：用户名要至少三位
+            if (ZC_5.value.length == 0) {
+                ZC_6.innerHTML = "用户名不能为空";
+                ZC_6.className = "error";
+                return false;
+            }
+            if (!ZC_7.test(ZC_5.value)) {
+                ZC_6.innerHTML = "用户名不合规范";
+                ZC_6.className = "error";
+                return false;
+            } else {
+                ZC_6.innerHTML = "OK";
+                ZC_6.className = "success";
+                return true;
+            }
+        }
+        //验证密码
+        function checkPassword() {
+            var ZC_8 = document.getElementById("userPasword");
+            var ZC_9 = document.getElementById("passwordErr");
+            var ZC_7 = /^\w{4,8}$/; //密码要在4-8位
+            if (!ZC_7.test(ZC_8.value)) {
+                ZC_9.innerHTML = "密码不合规范";
+                ZC_9.className = "error";
+                return false;
+            } else {
+                ZC_9.innerHTML = "OK";
+                ZC_9.className = "success";
+                return true;
+            }
+        }
+        //确认密码
+        function ConfirmPassword() {
+            var ZC_8 = document.getElementById("userPasword");
+            var ZC_10 = document.getElementById("userConfirmPasword");
+            var ZC_11 = document.getElementById("conPasswordErr");
+            if (
+                ZC_8.value != ZC_10.value ||
+                ZC_10.value.length == 0
+            ) {
+                ZC_11.innerHTML = "上下密码不一致";
+                ZC_11.className = "error";
+                return false;
+            } else {
+                ZC_11.innerHTML = "OK";
+                ZC_11.className = "success";
+                return true;
+            }
+        }
+        //验证手机号
+        function checkPhone() {
+            var ZC_12 = document.getElementById("userPhone");
+            var ZC_13 = document.getElementById("phoneErr");
+            var ZC_7 = /^1[34578]\d{9}$/; //验证手机号正则表达式
+            if (!ZC_7.test(ZC_12.value)) {
+                ZC_13.innerHTML = "手机号码不合规范";
+                ZC_13.className = "error";
+                return false;
+            } else {
+                ZC_13.innerHTML = "OK";
+                ZC_13.className = "success";
+                return true;
+            }
+        }
+        //注册成功
+        function register() {
+            if (checkForm()) {
+                var ZC_14 = confirm("注册成功!是否跳转到首页?");
+                if (ZC_14 == true) {
+                    /*  window.open("./index.html"); */
+                    window.location.href = "./index.html";
+                    window.event.returnValue = false;
+                }
+            } else {
+                alert("信息有误");
+            }
+        }
+    </script>
+</body>
+
+</html>
